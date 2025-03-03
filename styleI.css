@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f8ff;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input, button {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+#weatherResult {
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* Philippine Theme Colors */
+body {
+    background-color: #F2E6B1; /* Philippine yellow */
+}
+
+.weather-card {
+    background: linear-gradient(135deg, #0033A0, #CE1126); /* PH flag colors */
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+#phCity {
+    padding: 10px;
+    border: 2px solid #0033A0;
+    border-radius: 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+.weather-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.weather-details p {
+    margin: 10px 0;
+    font-size: 1.1em;
+}
+.search-group {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 2fr;
+    margin-bottom: 15px;
+}
+
+.date-group {
+    display: flex;
+    gap: 10px;
+}
+
+#manualCity, #regionSelect {
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+input[type="text"] {
+    padding: 12px;
+    border: 2px solid #0033A0;
+    border-radius: 6px;
+}
+
+@media (max-width: 600px) {
+    .search-group {
+        grid-template-columns: 1fr;
+    }
+    
+    .date-group {
+        flex-direction: column;
+    }
+}
