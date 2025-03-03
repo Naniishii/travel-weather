@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PH Travel Weather</title>
+    <link rel="stylesheet" href="styleI.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🇵🇭 Philippines Travel Planner</h1>
+        
+        <div class="search-box">
+            <input type="text" 
+                   id="phLocation" 
+                   placeholder="Enter Philippine city or location">
+            <input type="date" id="travelDate">
+            <button onclick="getWeather()">Check Weather</button>
+        </div>
+
+        <div id="loading" class="hidden">Loading weather data...</div>
+
+        <div id="weatherCard" class="weather-card hidden">
+            <div class="weather-header">
+                <h2 id="location"></h2>
+                <img id="weatherIcon" src="" alt="Weather Icon">
+            </div>
+            <div class="weather-details">
+                <p>🌡️ Temperature: <span id="temp"></span></p>
+                <p>💧 Humidity: <span id="humidity"></span></p>
+                <p>🌧️ Precipitation: <span id="precip"></span></p>
+                <p>🛡️ UV Index: <span id="uv"></span></p>
+            </div>
+        </div>
+
+        <div id="bookingSection" class="hidden">
+            <h2>Book Your Trip to <span id="destinationName"></span></h2>
+            <div class="booking-options">
+                <button onclick="showHotels()">Browse Hotels</button>
+                <button onclick="showFlights()">Find Flights</button>
+            </div>
+        </div>
+    </div>
+    <script src="scriptA.js"></script>
+</body>
+</html>
