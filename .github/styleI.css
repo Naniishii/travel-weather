@@ -105,3 +105,46 @@ input[type="text"] {
         flex-direction: column;
     }
 }
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #F2E6B1;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.search-box {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+input, button {
+    padding: 12px;
+    border: 2px solid #0033A0;
+    border-radius: 6px;
+    font-size: 16px;
+    flex: 1;
+}
+
+#phLocation {
+    width: 100%;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Keep rest of the CSS from previous version */
