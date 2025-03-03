@@ -11,15 +11,11 @@
         <h1>🇵🇭 Philippines Travel Planner</h1>
         
         <div class="search-box">
-            <select id="phCity">
-                <option value="">Select City</option>
-                <option value="Manila">Metro Manila</option>
-                <option value="Cebu City">Cebu</option>
-                <option value="Davao City">Davao</option>
-                <option value="Bacolod">Bacolod</option>
-            </select>
+            <input type="text" 
+                   id="phLocation" 
+                   placeholder="Enter Philippine city or location">
             <input type="date" id="travelDate">
-            <button onclick="getWeather()">Check Travel Weather</button>
+            <button onclick="getWeather()">Check Weather</button>
         </div>
 
         <div id="loading" class="hidden">Loading weather data...</div>

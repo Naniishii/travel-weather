@@ -1,21 +1,30 @@
 const API_KEY = '021f221b4f1840d4bb293651250203';
 const BASE_URL = 'https://api.weatherapi.com/v1';
 
+// Initialize date picker
+function initDatePicker() {
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('travelDate').min = today;
+    document.getElementById('travelDate').value = today;
+}
+
 async function getWeather() {
-    const city = document.getElementById('phCity').value;
+    const locationInput = document.getElementById('phLocation');
+    const city = locationInput.value.trim();
     const date = document.getElementById('travelDate').value;
 
     if (!city) {
-        alert('Please select a Philippine city');
+        alert('Please enter a Philippine location');
         return;
     }
 
     try {
+        showLoading(true);
         const response = await fetch(
-            `${BASE_URL}/forecast.json?key=${API_KEY}&q=${city}&days=3&aqi=no&alerts=yes`
+            `${BASE_URL}/forecast.json?key=${API_KEY}&q=${encodeURIComponent(city)},Philippines&days=3`
         );
         
-        if (!response.ok) throw new Error('City not found');
+        if (!response.ok) throw new Error('Location not found in Philippines');
         
         const data = await response.json();
         displayWeather(data);
@@ -23,6 +32,8 @@ async function getWeather() {
         
     } catch (error) {
         alert(`Error: ${error.message}`);
+    } finally {
+        showLoading(false);
     }
 }
 
@@ -38,7 +49,7 @@ function displayWeather(data) {
     document.getElementById('precip').textContent = `${current.precip_mm}mm`;
     document.getElementById('uv').textContent = current.uv;
     
-    // Weather icon from WeatherAPI
+    // Weather icon
     document.getElementById('weatherIcon').src = `https:${current.condition.icon}`;
     
     weatherCard.classList.remove('hidden');
@@ -50,21 +61,9 @@ function showBookingSection(city) {
     bookingSection.classList.remove('hidden');
 }
 
-// Bonus: Typhoon Alerts
-async function getTyphoonAlerts() {
-    try {
-        const response = await fetch(
-            `${BASE_URL}/forecast.json?key=${API_KEY}&q=Manila&alerts=yes`
-        );
-        const data = await response.json();
-        
-        if (data.alerts.alert.length > 0) {
-            alert('⚠️ Typhoon Alert! Check weather details carefully.');
-        }
-    } catch (error) {
-        console.log('Error fetching alerts:', error);
-    }
+function showLoading(show) {
+    document.getElementById('loading').classList.toggle('hidden', !show);
 }
 
-// Initial typhoon check
-getTyphoonAlerts();
+// Initialize on load
+window.addEventListener('DOMContentLoaded', initDatePicker);
