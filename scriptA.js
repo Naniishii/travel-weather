@@ -1,5 +1,5 @@
-const API_KEY = '021f221b4f1840d4bb293651250203';
-const BASE_URL = 'https://api.weatherapi.com/v1';
+const API_KEY = '123';
+const BASE_URL = '456';
 
 // Initialize date picker
 function initDatePicker() {
